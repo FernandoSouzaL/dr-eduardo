@@ -1,0 +1,70 @@
+.o-ttl {
+  line-height: 1.2;
+  margin-bottom: .5em;
+  margin-top: 0;
+  
+  &--secondary {
+    font-family: $font-secondary;
+  }
+
+  &--30 {
+    font-size: clamp(20px, 3vw, 30px);
+  }
+
+  &--20 {
+    font-size: clamp(18px, 3vw, 20px);
+  }
+
+  &--18 {
+    font-size: clamp(16px, 3vw, 18px);
+  }
+
+  &--extrabold {
+    font-weight: 800;
+  }
+  
+  &--bold {
+    font-weight: 700;
+  } 
+
+  &--semibold {
+    font-weight: 600;
+  }
+
+  &--medium {
+    font-weight: 500;
+  }
+
+  &--regular {
+    font-weight: 400;
+  }
+
+  &--light {
+    font-weight: 300;
+  }
+
+  &--extralight {
+    font-weight: 200;
+  }
+
+  &--thin {
+    font-weight: 100;
+  }
+
+  &--white {
+    color: $white;
+  }
+
+  &--center {
+    text-align: center;
+  }
+
+  &--upper {
+    text-transform: uppercase;
+  }
+
+  &--txt {
+    margin-top: .5em;
+  }
+
+}

@@ -1,0 +1,7 @@
+.o-wrapper {
+  margin: 0 auto;
+  padding: 0 5%;
+  box-sizing: border-box;
+
+  @include wrapper(1280, 5);
+}

@@ -1,0 +1,233 @@
+.c-menu {
+    display: flex;
+    align-items: center;
+    
+    &__hamburguer {
+        width: 25px;
+        height: 21px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        cursor: pointer;
+        position: relative;
+        z-index: 999;
+
+        @include above($md) {
+            display: none;
+        }
+
+        span {
+            width: 100%;
+            height: 3px;
+            background-color: $white;
+            display: block;
+            transition: all .5s ease-out;
+
+            &:nth-child(1) {
+                .is-active-menu & {
+                    opacity: 0;
+                    transform: translateY(-5px);
+                }
+            }
+
+            &:nth-child(2) {
+                .is-active-menu & {
+                    transform: rotate(-40deg) translate(0);
+                }
+            }
+
+            &:nth-child(3) {
+                .is-active-menu & {
+                    transform: rotate(40deg) translate(-5px,-7px);
+                }
+            }
+        }
+    }
+
+    &__container {
+        @include below($sm-max) {
+            width: 320px;
+            height: 100vh;
+            overflow: auto;
+            background-color: $black;
+            position: fixed;
+            top: 0;
+            right: -100%;
+            z-index: 99;
+            transition: all .5s ease-out;
+        }
+
+        .is-active-menu & {
+            right: 0;
+        }
+    }
+
+    &__list {
+        list-style: none;
+        margin-bottom: 0;
+        margin-top: 87px;
+
+        @include above($md) {
+            display: flex;
+            align-items: center;
+            margin: 0;
+        }
+    }
+
+    &__item {
+        position: relative;    
+        transition: $transition-default;
+        
+        @include above($md) {
+            margin: 0 1em;
+            padding: 33px 0;
+        }
+
+        .sub-menu & {
+            @include above($md) {
+                padding: 0;
+                margin: 0;
+                margin-bottom: .5em;
+                width: max-content;
+                text-align: left;
+            }
+
+            .is-active-header & {
+                padding: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+
+        &:last-child {
+            a {
+                @include below($sm-max) {
+                    margin-bottom: 0;
+                }
+            }
+        }
+
+        .is-active-header & {
+            @include above($md) {
+                padding: 25px 0;
+            }
+        }
+        
+        &:hover {
+            .sub-menu {
+                @include above($md) {
+                    height: auto;
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+            }
+        }
+    }
+
+    a {
+        color: $white;
+        padding-bottom: 4px;
+        position: relative;
+
+        @include below($sm-max) {
+            margin: 0 20px;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+
+        &::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            height: 2px;
+            background-color: $white;
+            transform: scale(0);
+            transition: .3s ease-out;
+        }
+
+        &:hover {
+            color: red ;
+
+            &::after {
+                transform: scale(1);
+            }
+        }
+    }
+
+    .sub-menu {
+        list-style: none;
+        background-color: $black;
+        box-sizing: border-box;
+        
+        @include below($sm-max) {
+            padding: 10px 20px;
+        }
+
+        @include above($md) {
+            margin: 0;
+            position: absolute;
+            z-index: 999;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            overflow: hidden;
+            height: 0;
+            padding-left: 20px;
+            padding-right: 20px;
+            transition: all .5s ease-out;
+        }
+    }
+
+}
+
+.c-menu-footer {
+    &__list {
+        margin: 0;
+        list-style: none;
+        display: flex;
+    }
+
+    &__item {
+        padding: 0 1em;
+        border-right: 1px solid $white;
+
+        &:first-child {
+            padding-left: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            border: none;
+        }
+    }
+
+    a {
+        color: $white;
+    }
+
+    .sub-menu {
+        list-style: none;
+        margin: 0;
+        margin-top: 5px;
+
+        > li {
+            padding: 0;
+            border: none;
+        }
+    }
+}
+
+.current-menu-parent >,
+.current-menu-item {
+    a {
+        color: red;
+
+        &::after {
+            transform: scale(1);
+        }
+    }
+}

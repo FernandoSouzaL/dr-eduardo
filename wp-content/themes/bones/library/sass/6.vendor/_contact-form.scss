@@ -1,0 +1,76 @@
+.wpcf7-acceptance {
+  .wpcf7-list-item {
+      margin: 0;
+  }
+
+  .wpcf7-list-item-label {
+    position: relative;
+    display: block;
+    line-height: 1.4;
+    padding-left: 25px;
+    font-size: 16px;
+    font-weight: 400;
+    color: $text-color;
+
+    &::after, 
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+    }
+
+    &::before {
+      top: 2px;
+      left: 0;
+      height: 20px;
+      width: 20px;
+      border-radius: 5px;
+      background-color: $gray;
+    }
+
+    &::after {
+      top: 6px;
+      left: 3px;
+      width: 14px;
+      height: 13px;
+      background-color: $color-primary;
+      opacity: 0;
+      transition: $transition-default;
+      border-radius: 4px;
+    }
+  }
+
+  .o-input--accept:checked + .wpcf7-list-item-label::after {
+    opacity: 1;
+  }
+
+  label a {
+      color: $color-primary;
+      text-decoration: underline;
+      font-weight: 700;
+
+      &:hover {
+          color: $link-hover-color;
+      }
+  }
+}
+
+.wpcf7-spinner {
+  background-color: $gray !important;
+  margin: 1em auto;
+  display: flex;
+
+  &::before {
+    content: '';
+    background-color: transparent !important;
+    top: unset !important;
+    position: relative !important;
+    left: unset !important;
+    width: 16px !important;
+    height: 16px !important;
+    border: 4px solid $color-secondary !important;
+    border-color: $color-primary $color-primary transparent transparent !important;
+    animation: spin 1.2s linear infinite !important;
+    transform-origin: unset !important;
+  }
+}

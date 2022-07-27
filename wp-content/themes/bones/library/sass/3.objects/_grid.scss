@@ -1,0 +1,19 @@
+.o-grid {
+    display: grid;
+
+    &__col {
+        &-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        &-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+    }
+
+    &__gap {
+        &-20 {
+            grid-gap: 20px;
+        }
+    }
+}
