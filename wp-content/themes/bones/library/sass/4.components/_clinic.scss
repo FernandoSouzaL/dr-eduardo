@@ -1,0 +1,189 @@
+.c-clinic {
+    &__container {
+        display: flex;
+        align-items: center;
+
+        @include below($sm-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__slider {
+        display: flex;
+        width: 35.15625%;
+        margin-left: 11.92708333333333%;
+        position: relative;
+        margin-right: 5.208333333333333%;
+
+        @include below($lg) {
+            width: 50%;
+            margin-left: 5%;
+        }
+
+        @include below($sm-max)  {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+
+        @include below($xs-max)  {
+            margin-bottom: 30px;
+        }
+
+        &::after {
+            content: '';
+            background: url('../../library/images/datail-component.svg');
+            background-position: center;
+            background-size: cover;
+            width: 113px;
+            height: 123px;
+            position: absolute;
+            bottom: -35px;
+            left: -60px;
+            z-index: 99;
+
+            @include below($sm-max)  {
+                left: 0;
+            }
+
+            @include below($xs-max) {
+                width: 56px;
+                height: 61px;
+                bottom: -20px;
+            }
+        }
+    }
+
+    &__text {
+        width: 25.83333333333333%;
+        margin-right: auto;
+
+        @include below($lg) {
+            width: 33%;
+        }
+
+        @include below($sm-max) {
+            width: 100%;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+    }
+
+    &__hospitals {
+        width: 75.52083333333333%;
+        margin-left: 16.66666666666667%;
+        margin-right: 7.708333333333333%;
+
+        @include below($md) {
+            width: 90%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        h3 {
+            margin: .5em 0;
+        }
+    }
+
+    &__image {
+        position: relative;
+        display: block;
+        transition: $transition-default;
+
+        &:hover {
+            .c-clinic__overlay {
+                transform: scale(1);
+            }   
+        }
+    }
+
+    &__overlay {
+        background-color: rgba(0,0,102,.88);
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: scale(0);    
+        transition: $transition-default;
+
+        a {
+            color: white;
+            
+            &:hover {
+                color: $color-secondary;
+            }
+        }
+    }
+
+    &__underline {
+        width: 35px;
+        height: 3px;
+        background-color: $color-primary;
+        border-radius: 5px;
+        margin: 0 auto;
+    }
+
+    &__tooltip {
+        position: relative;
+        display: inline-block;
+        margin-right: 45px;     
+
+        &-text {
+            visibility: hidden;
+            width: 100px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0;
+            transition: opacity 0.3s;
+
+            &::after {
+                content: "";
+                position: absolute;
+                top: 100%;
+                left: 50%;
+                margin-left: -5px;
+                border-width: 5px;
+                border-style: solid;
+                border-color: #555 transparent transparent transparent;
+            }
+        }
+
+        &:hover {
+            .c-clinic__tooltip-text {
+                visibility: visible;
+                opacity: 1;
+            }
+        }
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            color: $white;
+            transition: $transition-default;
+            outline: none;
+            border: none;
+
+            &:hover {
+                color: $color-secondary;
+            }            
+
+            input {
+                display: none;
+            }
+        }
+    } 
+}

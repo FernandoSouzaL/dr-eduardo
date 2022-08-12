@@ -1,4 +1,20 @@
 .c-bg {
-    padding-top: clamp(50px, 5vw, 100px);
     padding-bottom: clamp(50px, 5vw, 100px);
+
+    &--blog {
+        padding-top: clamp(50px, 5vw, 100px);
+        background-color: #EEE ;
+        background-image: url('../../library/images/bg-blog.png');
+        background-size: 100%;
+        background-position: bottom;
+        background-repeat: no-repeat;
+
+        @include below($md) {
+            background-size: cover;
+        }
+    }
+
+    &--video {
+        padding-top: clamp(50px, 5vw, 100px);
+    }
 }

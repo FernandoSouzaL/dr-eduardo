@@ -596,4 +596,38 @@ function tsm_convert_id_to_term_in_query($query) {
   
   add_filter('nav_menu_css_class', 'nav_menu_li_class', 1, 3);
 
+  // Set post views count using post meta
+  function setPostViews($postID) {
+    $countKey = 'post_views_count';
+    $count = get_post_meta($postID, $countKey, true);
+  
+    if($count=='') {
+      $count = 0;
+      delete_post_meta($postID, $countKey);
+      add_post_meta($postID, $countKey, '0');
+      return 'Nenhuma Visualização';
+    } elseif( is_single($postID) ) {
+      $count++;
+      update_post_meta($postID, $countKey, $count);
+    }
+
+    return $count . ' Visualizações';
+  }
+
+  // Add a new column in the wp-admin posts list
+  function posts_column_views( $defaults ) {
+      $defaults['post_views'] = __( 'Visualizações' );
+      return $defaults;
+  }
+  
+  // Display the number of views for each posts
+  function posts_custom_column_views( $column_name, $id ) {
+      if ( $column_name === 'post_views' ) {
+          echo setPostViews( get_the_ID() );
+      }
+  }
+  
+  add_filter( 'manage_posts_columns', 'posts_column_views' );
+  add_action( 'manage_posts_custom_column', 'posts_custom_column_views', 5, 2 );
+
 /* DON'T DELETE THIS CLOSING TAG */ ?>

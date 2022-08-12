@@ -1,0 +1,139 @@
+.c-archive-blog {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @include below($xs-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__posts {
+        width: 940px;
+        max-width: 100%;
+
+        @include below($sm-max) {
+            width: 460px;
+        }
+
+        @include below($xs-max) {
+            order: 2;
+        }
+    }
+
+    &__item {
+        p {
+            color: $text-color;
+        }
+
+        a {
+            &:hover {
+                .c-archive-blog__btn {
+                    color: $blue;
+
+                    svg {
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+    }
+
+    &__content {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__cats {
+        margin-right: 10px;
+    }
+
+    &__btn {
+        transition: $transition-default;
+
+        svg {
+            transition: $transition-default;
+            margin-bottom: 3px;
+            margin-right: 5px;
+            opacity: 0;
+        }
+    }
+
+    &__filters {
+        width: 275px;
+        max-width: 100%;
+        margin-left: 20px;
+
+        @include below($xs-max) {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+
+    &__search {
+        margin-bottom: 80px;
+
+        @include below($xs-max) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__categories {
+        margin-bottom: 95px;
+
+        @include below($xs-max) {
+            margin-bottom: 10px;
+        }
+
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 5px;
+        }
+
+        a {
+            width: 100%;
+            display: inline-block;
+            background-color: $light-gray;
+            padding: 9px 0;
+            color: $text-color;
+
+            &:hover {
+                color: $white;
+                background-color: $color-primary;
+            }
+        }
+    }
+
+    &__visiteds {
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray;
+
+        a {
+            display: flex;
+
+            &:hover {
+                &,
+                h3,
+                span  {
+                    color: $blue !important;
+                }
+            }
+        }
+
+        h3 {
+            margin-left: 10px;
+            color: $text-color;
+        }
+        
+        svg {
+            margin-top: 5px;
+        }
+        
+        span {
+            color: $text-color;
+            margin-top: 10px;
+            display: block;
+        }
+    }
+}

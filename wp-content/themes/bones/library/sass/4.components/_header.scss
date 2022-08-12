@@ -1,9 +1,10 @@
 .c-header {
-  background-color: $black;
+  background-color: $white;
   position: sticky;
   top: 0;
   transition: $transition-default;
   z-index: 999;
+  border-bottom: 1px solid #AAA;
 
   &__container {
     display: flex;
@@ -23,13 +24,30 @@
       display: inline-block;
     }
     
-    svg {
+    img {
       transition: $transition-default;
 
       .is-active-header & {
-        width: 154px;
+        width: 101px;
         height: auto;
       }
     }
   }  
+
+  &__phone {
+    position: fixed;
+    bottom: 60px;
+    z-index: 99;
+    right: 17.239583%;
+
+    @include below($lg) {
+      right: 2%;
+    }
+
+    .post-type-archive-blog &,
+    .single-blog &,
+    .page-id-17 & {
+        display: none;
+    }
+  }
 }

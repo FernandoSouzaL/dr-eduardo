@@ -4,16 +4,32 @@
     &__col {
         &-2 {
             grid-template-columns: repeat(2, 1fr);
+
+            @include below($sm-max) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
 
         &-3 {
             grid-template-columns: repeat(3, 1fr);
+
+            @include below($sm-max) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            @include below($xs-max) {
+                grid-template-columns: repeat(1, 1fr);
+            }
         }
     }
 
     &__gap {
         &-20 {
             grid-gap: 20px;
+        }
+
+        &-35 {
+            grid-gap: 35px;
         }
     }
 }

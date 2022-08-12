@@ -1,0 +1,50 @@
+.c-video {
+    width: 100%;
+    padding-bottom: 56%;
+    background-size: cover;
+    height: 0;
+    background-position: 50%;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+    transition: $transition-default;
+
+    &:hover {
+        .c-video__svg {
+            transform: scale(1.2) translate(-50%, -50%);
+        }
+    }
+
+    &__svg {
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: scale(1) translate(-50%, -50%);
+        transition: $transition-default;
+
+        @include below($xs-max) {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    &__player {
+        position: absolute;
+        z-index: 0;
+        left: 0;
+        top: 0;
+        width: 0;
+        height: 0;
+    }
+
+    &.is-playing {
+        .c-video__player {
+            z-index: 3;
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,7 +1,44 @@
 .c-footer {
-  background: $black;
+  background: $text-color;
   display: inline-block;
   width: 100%;
+
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 90px;
+    margin-top: 100px;
+
+    @include below($md-max) {
+      grid-gap: 50px;
+    }
+
+    @include below($xs-max) {
+      grid-gap: 20px;
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  &__item {
+    border-right: 1px solid #AAAAAA;
+    
+    @include below($xs-max) {
+      border-right: 0;
+      padding-bottom: 20px;
+    }
+
+    &:last-child {
+      border: 0;
+    }
+
+    p,
+    h3 {
+      @include below($xs-max) {
+        text-align: center;
+      }
+    }
+
+  }
 
   &__copyright {
     margin: 2em 0;
@@ -11,5 +48,29 @@
       width: 20px;
       height: 30px;
     }
+  }
+
+  .c-menu-redes {
+    margin-left: 0;
+    margin-top: 30px;
+    display: block;
+
+    @include below($xs-max) {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+
+    p {
+      margin-bottom: 15px;
+    }
+
+    a:hover {
+      color: $color-primary;
+    }
+  }
+
+  input {
+    background-color: $white;
   }
 }

@@ -8,35 +8,65 @@
   margin: 0;
   padding: 0.87em 2.3em;
   text-align: center;
-  border-radius: 20px;
+  border-radius: 10px;
 
   &--primary {
     font-size: 16px;
     font-weight: bold;
-    background-color: $color-primary;
+    background-image: linear-gradient(to right, $blue, $color-secondary);
     color: $white;
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    box-sizing: border-box;
+
+    span {
+      position: relative;
+      display: inline-block;
+      background-color: transparent;
+      z-index: 3;
+    }
+
+    &::after {
+      content: '';
+      width: 0;
+      height: 100%;
+      background-color: $color-secondary;
+      transition: $transition-default;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 2;
+    }
 
     &:hover {
-      background-color: $link-hover-color;
       color: $white;
+
+      &::after {
+        width: 100%;     
+      }
     }
   }
 
   &--submit {
     width: 100%;
-    background: $color-primary;
+    background-image: linear-gradient(to right, $blue, $color-secondary);
     height: 50px;
     padding: 0;
-    border-radius: 25px;
+    border-radius: 10px;
     font-weight: bold;
     color: $white;
-    
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: $transition-default;
+
     &:hover {
-      background-color: $link-hover-color;
+      background-image: linear-gradient(to right, $color-secondary, $color-secondary);
     }
 
     &:disabled:hover {
-      background: $color-secondary;
+      background-image: linear-gradient(to right, $blue, $color-secondary);
     }
   }
 

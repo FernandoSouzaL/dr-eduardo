@@ -95,3 +95,49 @@
     }
   }
 }
+
+.swiper-scrollbar {
+  width: 210px;
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 50px;
+  transform: translateX(-50%);
+  background: #BBBBBB;
+  border-radius: 10px;
+
+  &--secondary {
+    position: relative;
+    bottom: 0;
+    margin-top: 50px;
+  }
+
+  &--categories {
+    position: relative;
+    bottom: 0;
+    margin-top: 20px;
+    left: 0;
+    transform: none;
+    width: 100%;
+  }
+
+  &--hospital {
+    position: relative;
+    bottom: 0;
+    margin-top: 50px;
+
+    @include above($md) {
+      transform: none;
+      left: 0;
+    }
+  }
+
+  &-drag {
+    height: 3px;
+    background: $color-secondary;
+  }
+
+  &-lock {
+    display: none;
+  } 
+}

@@ -1,0 +1,17 @@
+.c-ico-svg {
+    width: 200px;
+    height: 145px;
+
+    &--secondary {
+        height: 319px;
+        width: 282px;
+        
+        path {
+            fill: $white;
+        }
+    }
+
+    path {
+        transition: $transition-default;
+    }
+}

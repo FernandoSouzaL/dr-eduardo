@@ -1,0 +1,24 @@
+.c-testimonial {
+    background: url('../../library/images/bg-depoimentos.jpg') center no-repeat;
+    background-size: cover;
+    padding: 100px 0;
+
+    p {
+        color: $white
+    }
+
+    &__underline {
+        width: 35px;
+        height: 3px;
+        background-color: $color-primary;
+        border-radius: 5px;
+        display: flex;
+        margin: 0 auto;
+    }
+
+    .post-type-archive-blog &,
+    .single-blog &,
+    .page-id-17 & {
+        display: none;
+    }
+}

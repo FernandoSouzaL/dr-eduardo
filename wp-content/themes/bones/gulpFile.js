@@ -18,7 +18,7 @@ const paths = {
     src: ['library/js/main.js'],
     dest: 'public/js/',
   },
-  themename: 'new-theme',
+  themename: 'dr-eduardo',
 };
 
 function compileStyles() {

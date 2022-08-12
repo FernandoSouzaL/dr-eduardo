@@ -1,0 +1,149 @@
+.c-about {
+    &__container {
+        display: flex;
+        align-items: center;
+
+        @include below($sm-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__image {
+        display: flex;
+        width: 35.15625%;
+        margin-left: 11.92708333333333%;
+        position: relative;
+        margin-right: 5.208333333333333%;
+
+        @include below($lg) {
+            width: 50%;
+            margin-left: 5%;
+        }
+
+        @include below($sm-max)  {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+            margin-bottom: 50px;
+        }
+
+        @include below($xs-max)  {
+            margin-bottom: 30px;
+        }
+
+        &::after {
+            content: '';
+            background: url('../../library/images/datail-component.svg');
+            background-position: center;
+            background-size: cover;
+            width: 113px;
+            height: 123px;
+            position: absolute;
+            bottom: -35px;
+            left: -60px;
+
+            @include below($sm-max)  {
+                left: 0;
+            }
+
+            @include below($xs-max) {
+                width: 56px;
+                height: 61px;
+                bottom: -20px;
+            }
+        }
+    }
+
+    &__text {
+        width: 25.83333333333333%;
+        margin-right: auto;
+
+        h2 {
+            font-size: clamp(24px, 5vw, 35px);
+            font-weight: 600;
+            padding-bottom: 4px;
+            position: relative;
+
+            &::after {
+                content: '';
+                width: 35px;
+                height: 3px;
+                background-color: $color-primary;
+                border-radius: 5px;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        @include below($lg) {
+            width: 33%;
+        }
+
+        @include below($sm-max) {
+            width: 100%;
+            padding: 0 5%;
+            box-sizing: border-box;
+        }
+    }
+
+    &__banner {
+        background-color: #EDEEF0;
+        background-image: url('../../library/images/bg-sbu.png');
+        background-repeat: no-repeat;
+        background-position: left;
+        padding: 88px 0;
+
+        @include below($lg) {
+            padding: 2% 0;
+            background-size: 69%;
+        }
+
+        @include below($sm-max) {
+            background-position: top center;
+            background-size: 100%;
+            padding-top: 100px;
+            padding-bottom: 50px;
+        }
+
+        @include below($xs-max) {
+            padding-top: 50px;
+        }
+
+        @media (max-width: 425px) {
+            background-size: 150%;
+        }
+
+        &-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: clamp(30px, 8vw, 100px);
+            align-items: flex-end;
+
+            @include below($sm-max) {
+                grid-template-columns: repeat(1, 1fr);
+                align-items: center;
+                grid-gap: 140px;
+            }
+
+            @include below($sm) {
+                grid-gap: 100px;
+            }
+        }
+
+        &-text {
+            h3,
+            p {
+                margin: 0;
+            }
+        }
+
+        &-logo {
+            margin-left: auto;
+
+            @include below($sm-max) {
+                margin: 0 auto;
+            }
+        }
+    }
+}

@@ -40,6 +40,10 @@
 		<!-- swipper -->
 		<script src="<?php echo get_template_directory_uri(); ?>/library/swiper/dist/js/swiper.min.js"></script>
 
+		<!-- Fonts -->
+		<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<!-- End: Fonts -->
+
 		<?php // drop Google Analytics Here ?>
 		<?php // end analytics ?>
 
@@ -54,10 +58,7 @@
 		
 					<p class="c-header__logo">
 						<a href="<?php echo home_url(); ?>" rel="nofollow">
-							<svg width="184" height="63">
-								<title><?php bloginfo( 'name' ); ?></title>
-								<use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#logotipo" />
-							</svg>
+							<img src="<?php echo get_template_directory_uri(); ?>/library/images/logotipo.svg" alt="<?php bloginfo( 'name' ); ?>">
 						</a>
 					</p>
 		
@@ -69,8 +70,22 @@
 						</div>
 
 						<?php get_template_part('partials/main-nav-top'); ?>
+
+						<div class="c-menu-redes">
+							<p class="o-ttl--14 o-ttl--blue o-ttl--semibold o-ttl--right">CRM: 30352</p>
+
+							<ul class="c-menu-redes__list">
+								<?php get_template_part('partials/main-redes-menu'); ?>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 
 		</header>
+
+		<div class="c-header__phone">
+			<a href="#">
+				<img src="<?php echo get_template_directory_uri(); ?>/library/images/ico-telefone-page.svg">
+			</a>
+		</div>

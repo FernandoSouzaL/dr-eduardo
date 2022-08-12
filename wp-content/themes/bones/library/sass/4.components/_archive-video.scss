@@ -1,0 +1,101 @@
+.c-archive-video {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @include below($xs-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__item {
+        a {
+            color: $text-color;
+
+            &:hover {
+                color: $color-primary;
+            }
+        }
+    }
+
+    &__image {
+        position: relative;
+    }
+
+    &__overlay {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(33,33,33,.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__posts {
+        width: 940px;
+        max-width: 100%;
+
+        @include below($sm-max) {
+            width: 460px;
+        }
+
+        @include below($xs-max) {
+            order: 2;
+        }
+    }
+
+    &__filters {
+        width: 275px;
+        max-width: 100%;
+        margin-left: 20px;
+
+        @include below($xs-max) {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+
+    &__search {
+        margin-bottom: 80px;
+
+        @include below($xs-max) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__visiteds {
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray;
+
+        a {
+            display: flex;
+
+            &:hover {
+                &,
+                h3,
+                span  {
+                    color: $blue !important;
+                }
+            }
+        }
+
+        h3 {
+            margin-left: 10px;
+            color: $text-color;
+        }
+        
+        svg {
+            margin-top: 5px;
+        }
+        
+        span {
+            color: $text-color;
+            margin-top: 10px;
+            display: block;
+        }
+    }
+}

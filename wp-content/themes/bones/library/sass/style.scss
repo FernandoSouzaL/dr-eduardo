@@ -21,8 +21,25 @@
 // Components
 @import '4.components/header';
 @import '4.components/menu';
+@import '4.components/banner';
+@import '4.components/breadcrumbs';
+@import '4.components/about';
+@import '4.components/form';
+@import '4.components/testimonial';
+@import '4.components/clinic';
+@import '4.components/procedures';
+@import '4.components/ico-svg';
+@import '4.components/single-blog';
+@import '4.components/single-video';
+@import '4.components/single-procedures';
+@import '4.components/archive-blog';
+@import '4.components/archive-video';
 @import '4.components/footer';
+@import '4.components/main';
+@import '4.components/video';
+@import '4.components/contact';
 @import '4.components/pagination';
+@import '4.components/home';
 @import '4.components/not-found';
 @import '4.components/backgrounds';
 
@@ -32,3 +49,4 @@
 // Vendor
 @import '6.vendor/swiper';
 @import '6.vendor/contact-form';
+@import '6.vendor/share';

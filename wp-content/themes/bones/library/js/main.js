@@ -1,35 +1,125 @@
 jQuery(document).ready(function ($) {
 
   // Slides
-  var swiper = new Swiper('.swiper-container', {
+  var swiper = new Swiper('.js-home-slider', {
     slidesPerView: 'auto',
     centeredSlides: true,
     paginationClickable: true,
-    //spaceBetween: 5000,
     autoplay: {
       delay: 8000,
     },
-    pagination: {
-      el: '.swiper-container .swiper-pagination',
-      type: 'bullets',
-      clickable: true,
+    scrollbar: {
+      el: ".js-home-slider .swiper-scrollbar",
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-testimonial', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    paginationClickable: true,
+    scrollbar: {
+      el: ".js-slider-testimonial .swiper-scrollbar",
     },
-    navigation: {
-      nextEl: ".swiper-container .swiper-button-next",
-      prevEl: ".swiper-container .swiper-button-prev",
+  });
+
+  var swiper = new Swiper('.js-slider-gallery', {
+    slidesPerView: 1,
+    centeredSlides: true,
+    paginationClickable: true,
+    scrollbar: {
+      el: ".js-slider-gallery .swiper-scrollbar",
     },
-    //loop: true,
-    // breakpoints: {
-    //     // when window width is <= 320px
-    //     1024: {
-    //       slidesPerView: 2,
-    //     },
-    //     // when window width is <= 480px
-    //     768: {
-    //       slidesPerView: 1,
-    //       spaceBetween: 20
-    //     }
-    //   }
+  });
+
+  var swiper = new Swiper('.js-slider-hospitals', {
+    slidesPerView: 3,
+    paginationClickable: true,
+    spaceBetween: 30,
+    scrollbar: {
+      el: ".js-slider-hospitals .swiper-scrollbar",
+    },
+    breakpoints: {
+      1023: {
+        slidesPerView: 2,
+      },
+      425: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-categories', {
+    slidesPerView: 3,
+    paginationClickable: true,
+    spaceBetween: 30,
+    scrollbar: {
+      el: ".js-slider-categories .swiper-scrollbar",
+    },
+    breakpoints: {
+      655: {
+        slidesPerView: 2,
+        spaceBetween: 20
+      },
+      375: {
+        slidesPerView: 1,
+        spaceBetween: 5
+      }
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-procedures', {
+    slidesPerView: 3,
+    paginationClickable: true,
+    spaceBetween: 30,
+    scrollbar: {
+      el: ".js-slider-procedures .swiper-scrollbar",
+    },
+    breakpoints: {
+      1023: {
+        slidesPerView: 2,
+      },
+      560: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-blog', {
+    slidesPerView: 3,
+    paginationClickable: true,
+    spaceBetween: 30,
+    scrollbar: {
+      el: ".js-slider-blog .swiper-scrollbar",
+    },
+    breakpoints: {
+      1023: {
+        slidesPerView: 2,
+      },
+      560: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
+  });
+
+  var swiper = new Swiper('.js-slider-video', {
+    slidesPerView: 3,
+    paginationClickable: true,
+    spaceBetween: 30,
+    scrollbar: {
+      el: ".js-slider-blog .swiper-scrollbar",
+    },
+    breakpoints: {
+      1023: {
+        slidesPerView: 2,
+      },
+      560: {
+        slidesPerView: 1,
+        spaceBetween: 20
+      }
+    }
   });
 
   // Header
@@ -54,6 +144,43 @@ jQuery(document).ready(function ($) {
     const $html = $('html');
 
     $html.toggleClass('is-active-menu');
+  });
+
+  // Ajax procedures
+  $('.js-ajax-procedures').on('click', function(e) {
+    e.preventDefault();
+
+    const $this = $(this),
+          value = $this.attr('href');
+
+    $('.js-ajax-procedures').removeClass('is-current-category');
+    $this.addClass('is-current-category');
+
+    $.ajax({
+      type: 'POST',
+      url: '../wp-content/themes/bones/library/php/busca-procedimentos.php?acao=busca_procedimentos',
+      data: {
+        slug: value
+      },
+      beforeSend : function() {
+        $('.c-procedures__loading').show();
+      },
+      success : function(e) {
+        $('.c-procedures__loading').hide();
+        $('.js-ajax-container').html('');
+        $('.js-ajax-container').append(e);
+      }
+    });
+  });
+
+  // Play video yt
+  $('.js-video-player').on('click', function() {
+    const $video = $(this),
+          videoSrc = $video.data('video'),
+          videoPlayer = $video.children('.js-video-play');
+    
+    $video.addClass('is-playing');
+    videoPlayer.attr('src', videoSrc);
   });
 
   // MASKED INPUT

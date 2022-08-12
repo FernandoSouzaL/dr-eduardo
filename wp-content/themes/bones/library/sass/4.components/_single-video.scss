@@ -1,0 +1,112 @@
+.c-single-video {
+    &__container {
+        display: flex;
+        justify-content: space-between;
+
+        @include below($xs-max) {
+            flex-direction: column;
+        }
+    }
+
+    &__posts {
+        width: 851px;
+        margin-left: 50px;
+        max-width: 100%;
+
+        @include below($md) {
+            margin-left: 0;
+        }
+
+        @include below($sm-max) {
+            width: 460px;
+        }
+
+        @include below($xs-max) {
+            order: 2;
+            width: 100%;
+        }
+    }
+
+    &__footer {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        align-items: center;
+        grid-gap: 10px;
+        margin-top: 50px;
+
+        @include below($sm-max) {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        p {
+            margin: 0;
+        }
+    }
+
+    &__filters {
+        width: 275px;
+        max-width: 100%;
+        margin-left: 20px;
+
+        @include below($xs-max) {
+            width: 100%;
+            margin-left: 0;
+        }
+    }
+
+    &__search {
+        margin-bottom: 80px;
+
+        @include below($xs-max) {
+            margin-bottom: 10px;
+        }
+    }
+
+    &__visiteds {
+        margin-bottom: 20px;
+        border-bottom: 1px solid $gray;
+
+        a {
+            display: flex;
+
+            &:hover {
+                &,
+                h3,
+                span  {
+                    color: $blue !important;
+                }
+            }
+        }
+
+        h3 {
+            margin-left: 10px;
+            color: $text-color;
+        }
+        
+        svg {
+            margin-top: 5px;
+        }
+        
+        span {
+            color: $text-color;
+            margin-top: 10px;
+            display: block;
+        }
+    }
+
+    &__slider {
+        .swiper-container {
+            @include above($xs-max) {
+                overflow: visible;
+            }
+        }
+
+        .swiper-scrollbar {
+            @include above($md) {
+                transform: none;
+                left: 0;
+            }
+        }
+    }
+
+}

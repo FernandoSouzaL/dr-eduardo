@@ -6,9 +6,9 @@
 
     <?php foreach ($redes as $menu): ?>
 
-        <li class="c-menu__icon">
+        <li class="c-menu-redes__item">
             <a href="<?= $menu->url; ?>">
-                <svg width="30" height="30">
+                <svg width="28" height="28">
                     <title><?= $menu->title; ?></title>
                     <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#<?= $menu->title; ?>" />
                 </svg> 
